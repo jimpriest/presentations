@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<project name="InteractWithFiles" default="init" basedir=".">
+
+	<description>
+		This is an example of how to interact with files
+	</description>
+	
+	<target name="init" description="Set global properties">
+		<property name="project.name" value="myproject" />
+		<property name="project.dir" value="E:\workspace\interactwithfiles\" />
+		<property name="project.fullname" value="Example Project" />
+		<property name="project.builddir" value="build" />
+		
+		<!-- Create the time stamp -->
+		<tstamp>
+			<format property="project.builddate" pattern="MM/dd/yy hh:mmaa"/>
+		</tstamp>
+		
+		<!-- Define log filename -->
+		<property name="build.logfile" value="ant-build.log" />
+		<record name="${build.logfile}"/>
+	</target>
+	
+	<target name="makeDir" depends="init" description="Create our temp directory for files">
+       	<delete dir="${project.builddir}" />
+		<mkdir dir="${project.builddir}" />
+		<echo message="Build directory created!"/>
+	</target>
+	
+	<target name="copyFiles" depends="makeDir" description="Copy project files into build dir">
+		<copy todir="${project.builddir}">
+			<fileset dir="${project.dir}">
+				<!-- Exclude non-project related files and directories -->
+				<exclude name="**/_notes/**" />
+                <exclude name="**/build/**" />
+				<exclude name="build*.xml" />
+				<exclude name=".project" />
+				<exclude name="*.log" />
+			</fileset>
+		</copy>
+	    <echo message="File(s) copied successfully!"/>
+	</target>	
+	
+	<target name="writeRevision" depends="copyFiles" description="Write info into application.cfm">
+		<replace file="${project.dir}${project.builddir}\application.cfm" token="@@@revision-number@@@" value="${project.fullname} last updated: ${project.builddate}"/>
+	    <echo message="Application.cfm modified successfully!"/>
+	</target>
+
+	<target name="zipFiles" depends="writeRevision" description="Zip our build files into our project dir">
+		<zip destfile="${project.dir}project.zip" basedir="${project.builddir}" />
+		<delete dir="${project.builddir}" />
+		<echo message="File(s) zipped!"/>
+	</target>
+	
+</project>

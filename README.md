@@ -1,2 +1,4 @@
-# presentations
-Presentations I've given at local user groups / conferences
+# Presentation
+Presentations I've given at work, local user groups and conferences.
+
+

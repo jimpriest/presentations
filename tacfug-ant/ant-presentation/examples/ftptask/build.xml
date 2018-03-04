@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<project name="FTPExample" default="init" basedir=".">
+
+	<description>
+		This is an example of how to use the FTP task
+		This requires additional libraries for Ant to run - please see the FTP documentation 
+		as well as this blog post:
+		
+		http://www.thecrumb.com/2007/07/24/using-the-ant-ftp-task/
+	</description>
+	
+	<target name="init" description="Set global properties">
+	</target>
+	
+	<target name="sendFile" depends="init" description="FTP .cfm files from local directory to server">
+		<ftp server="localhost"
+			userid="jim"
+			password="jim">
+			<fileset dir="E:\workspace\ftptask">
+				<include name="**/*.cfm"/>
+			</fileset>
+		</ftp>
+		<echo message="File uploaded!"/>
+	</target>
+	
+	<target name="listFile" depends="init, sendFile" description="Generate a list of file on server">
+			<ftp action="list"
+				server="localhost"
+				userid="jim"
+				password="jim"
+				listing="list.txt">
+				<fileset>
+					<include name="*.cfm"/>
+				</fileset>
+			</ftp>
+		
+		<loadfile property="ftplist" srcFile="e:\workspace\ftptask\list.txt"/>
+		<echo message="${ftplist}"/>
+	</target>
+
+	<target name="deleteFile" depends="init" description="Delete FTP file(s) from server">
+			<ftp action="del"
+				server="localhost"
+				userid="jim"
+				password="jim">
+				<fileset>
+					<include name="*.cfm"/>
+				</fileset>
+			</ftp>
+		<delete file="e:\workspace\ftptask\list.txt"/>
+		<delete>
+			<fileset dir="." includes="*.log"/>
+		</delete>
+		<echo message="File(s) deleted!"/>
+	</target>
+	
+</project>

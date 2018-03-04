@@ -1,0 +1,30 @@
+h1. Code Review SOP
+
+h2. Introduction
+h3. Purpose
+The purpose of this Standard Operating Procedure (SOP) is to define the minimum standards of code review. Code review ensures that programmers are writing programs that accurately meet the needs of individual projects.
+
+h3. Scope
+This procedure applies to all programmers in the EWITS Application Development group (AppDev).
+
+h3. Responsibility
+The group responsible for the development of the source code will conduct code reviews. 
+
+h2. Code Review Procedure
+* Source code review must be performed by someone competent with regard to the review process and the programming
+language.
+* The reviewer must be independent of the program developer.
+* Programs requiring modification after conducting code reviews must have a repeat of the code review process before being deployed.
+
+The code review must include a review of the source code to determine:
+* Adherence to AppDev coding and database standards.
+* If the code is an accurate and complete translation of the specification (design review).
+* The absence of dead code.
+* The absence of debugging programming statements such as those that display messages, set input parameters, or
+set program variables.
+
+During the code review process if any of the above items are discovered, they must be corrected prior to deployment.
+
+If a justifiable reason exists to deviate from this procedure, the justification must be documented and reviewed with the review group for resolution.
+
+

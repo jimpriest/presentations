@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<project name="HelloWorld" default="helloworld" basedir=".">
+	<taskdef name="query" classname="com.jera.anttasks.Query"/>	
+
+	<description>
+		This is a sample build file - Hello World
+	</description>
+	
+	<target name="init" description="Set global properties">
+		<property name="myname" value="Frank Zappa" />
+		<!-- set timestamp to be used later -->
+		<tstamp>
+			<format property="mydate" pattern="MM/dd/yy hh:mmaa"/>
+		</tstamp>
+	</target>
+		
+	<target name="helloworld" description="Say Hello">
+		<echo message="Hello World"/>
+	</target>
+	
+	<target name="hellojim" depends="init" description="Say hello and display name from property">
+		<echo message="Hello ${myname}"/>
+	</target>
+	
+	<target name="hellodate" depends="init" description="Say hello and display the current date and time">
+		<echo message="Hello ${myname}. It is ${mydate}."/>
+	</target>
+	
+	<target name="helloprompt" depends="init" description="Prompt user for name">
+	   	<!-- this default Ant input task would not work in Eclipse 3.3 - but does work with Ant 1.7 command line
+		<input message="Please enter your name:" addproperty="yourname" defaultvalue="Tom Jones" /> -->
+	   	<query name="yourname" message="Enter your SVN username (lowercase)"/>
+		<echo message="Hello ${yourname}. It is ${mydate}."/>
+	</target>
+</project>

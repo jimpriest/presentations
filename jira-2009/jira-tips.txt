@@ -1,0 +1,30 @@
+Definitions
+Component - a logical grouping of issues
+
+JIRA TIPS AND TRICKS
+* Demo 'watches' (see Daniels ticket on Dashboard)
+* Screenshot widget
+* Sub-tasks
+* Subscriptions - Manage > Subscribe - email filter results
+* Export options - Print/XML/RSS/Word/Chart
+* Clone/Duplicate issue
+* Personalize your Dashboard
+* When navigating back and forth over a number of related issues, click the “History” link on the top-right corner to access all the recently visited issues.
+* Edit your profile page!
+* Enter JIRA key's during SVN commits (see CARES root proj)
+* Versions - see Cares
+* Use RSS!
+* Shortcut keys
+    * dashboard = Shift + Alt + H
+    * create = Shift + Alt + C
+    * submit = Shift + Alt + S
+    * quick search = Shift + Alt + Q
+    * comment = Shift + Alt + M
+    * find = Shift + Alt + F
+* Searches - words, phrases, wildcards *? and fuzzy: "word~"
+
+Submitting Good Bugs (see wiki)
+* Developers should avoid writing quick-and-dirty issues. What happens when priorities change, and the problem isn't looked at for the next six month
+* Before entering a bug - search for duplicates!! 2000+ bugs Maybe this bug has been entered (and possibly resolved?)
+* Write good summaries/descriptions - you should err in favour of putting too much information in a summary, rather than too little.
+* JIRA handles screenshots and attachments!

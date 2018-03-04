@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Introduction to jQuery - Example 1</title>
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.css" />
+<script type="text/javascript">
+ $(document).ready(function(){
+ 	 $("a").click(function(){
+	   alert("Thanks for visiting!");
+	 });
+
+	$(".makebold").toggle(
+	  function(){
+	   $(this).css('fontWeight', 'bold').addClass('border');
+	  },
+	 function(){
+ 	   $(this).css('fontWeight', 'normal').addClass('noborder');
+ 	  });
+
+	$(".makebold2").toggle(
+	  function(){
+	   $(this).css('fontWeight', 'bold').addClass('border').removeClass('noborder');
+	  },
+	 function(){
+ 	   $(this).css('fontWeight', 'normal').addClass('noborder').removeClass('border');
+ 	  });
+ });
+</script>
+</head>
+<body>
+<h1>Example 1 - Hello World!</h1>
+&laquo; <a href="index.html">back to index</a>
+
+<hr>
+<strong>Simple alert.</strong>
+
+<a href="#" id="nav">Click me!</a>
+
+<h3>Code:</h3>
+<pre>
+
+&lt;a href="#" id="nav"&gt;Click me!&lt;/a&gt;
+
+ $(document).ready(function(){
+ 	 $("a").click(function(){
+	   alert("Thanks for visiting!");
+	 });
+ });
+</pre>
+
+<p>This is similar to the following code:</p>
+<pre>
+&lt;a href="" onclick="alert('Hello world')"&gt;Link&lt;/a&gt;
+</pre>
+
+<hr>
+<strong>Manipulating markup.</strong>
+<div class="makebold">Click me. This is not bold?</div>
+
+<h3>Code:</h3>
+<pre>
+
+&lt;div class="makebold"&gt;Click me. This is not bold?&lt;/div&gt;
+
+$(".makebold").toggle(
+	function(){
+  		$(this).css('fontWeight', 'bold').addClass('border');
+ 	},
+	function(){
+   		$(this).css('fontWeight', 'normal').addClass('noborder');
+  	});
+</pre>
+
+<hr>
+<strong>Adding & Removing Classes - Chaining</strong>
+<div class="makebold2">Click me! This is not bold? Working Correctly.</div>
+<h3>Code:</h3>
+<pre>
+	  $(".makebold2").toggle(
+	  function(){
+	   $(this).css('fontWeight', 'bold').addClass('border').removeClass('noborder');
+	  },
+	 function(){
+ 	   $(this).css('fontWeight', 'normal').addClass('noborder').removeClass('border');
+ 	  });
+</pre>
+
+
+</body>
+</html>

@@ -1,0 +1,870 @@
+
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+=================================================================
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Work Smarter. Not Harder.</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-cat.png)">
+    <hgroup>
+      <h1 class="white">Digging Into The Developer Toolbox?</h2>
+      <h2 class="white">Have a seat. You are in the right place.</h2>
+    </hgroup>
+    <footer class="source white">source: flickr.com/photos/wendynelsonphoto/5489616946</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-intro.png)">
+    <hgroup>
+      <h1 class="white" data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 class="white"data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p class="white" data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+    <footer class="source white">source: flickr.com/photos/mr_bmonroe/8541292238</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-jim.png)">
+    <hgroup>
+      <h1 class="white">Jim Priest</h1>
+      <h2 class="white">NCDevCon</h2>
+      <h2 class="white">TACFUG</h2>
+      <h2 class="white">CodeBass Radio</h2>
+      <p class="white">I like motorcycles.</p>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>About Me</b></p>
+        <ul>
+          <li>Who am I and why am I so lazy</li>
+          <li>NCDevCon 2014 - date?</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-movie.png)">
+    <footer class="source white">source: flickr.com/photos/toasty/1125019024</footer>
+    <aside class="note">
+      <section>
+        <p><b>Presentation Overview</b></p>
+        <ul>
+          <li>Type less (or more) using bash files and keyword expanders like AutoHotkey</li>
+          <li>Work smarter - using tools like clipboard</li>
+          <li>Launchers - like FARR, Alfred</li>
+          <li>Virtual Desktops</li>
+          <li>Questions at the end with connect</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-automate.png)">
+    <hgroup>
+      <h1 class="white">Automate</h1>
+    </hgroup>
+    <article>
+     <pre class="prettyprint">
+        Main Entry: au·to·mate
+        Pronunciation: \ˈȯ-tə-ˌmāt\
+        Function: verb
+        To convert to largely automatic operation
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Automate</b></p>
+        <ul>
+          <li>Why automate?</li>
+          <li>We are constantly improving code, processes, hardware, etc.  but rarely improve yourself</li>
+          <li>It’s not what we are automating... But who!</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source white">source: flickr.com/photos/20858368@N00/105497713</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-r.png)">
+    <hgroup>
+      <ol class="build">
+        <li><h1>Repetition</h1></li>
+        <li><h1>Resolution</h1></li>
+        <li><h1>Re-Evaluate</h1></li>
+      </ol>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Three R's</b></p>
+        <ul>
+          <li>Learning new things is hard!!!!!! IDE Switch. Training ouselves is hard.</li>
+          <li>Repetition – it’s not fun but we know if we do things over and over again it will be drilled into our brains</li>
+          <li>Resolution – stick with it! Sometimes learning new techniques is difficult! But the payouts at the and will be rewarding!</li>
+          <li>Re-evaluate – constantly reevaluate your tools and techniques.  There is always something new out there!</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source black">source: http://junk-fest.blogspot.com/2009/08/junk-fest-its-all-about-three-rs.html</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-time.png)">
+    <hgroup class="auto-fadein">
+      <h1 class="white">"Lost time is never found again."</h1>
+      <h3 class="white">~ Benjamin Franklin</h3>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Main reason to automate?</b></p>
+        <ul>
+          <li>Saving time!</li>
+          <li>Did you walk here today? Why not?</li>
+          <li>If you do something x1 automate it!</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source white">source: flickr.com/photos/cmiked/4252428207</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-punchclock.png)">
+    <hgroup>
+      <ol class="build fade">
+        <li><h1 class="black">&lt;cfdump var="#foo#"&gt;</h1></li>
+        <li><h1 class="black">1 Task = 6 Seconds</h1></li>
+        <li><h1 class="black">10 Times Per Day = 1 Minute</h1></li>
+        <li><h1 class="black">Each Week = 5 Minutes</h1></li>
+        <li><h1 class="black">Each Year = 4 Hours</h1></li>
+      </ol>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Time Clock</b></p>
+        <ul>
+          <li>How many of these small repetitive tasks do you do every day??</li>
+          <li>cfdump/cfabort</li>
+          <li>new functions</li>
+          <li>comments</li>
+          <li>type the same thing you did yesterday from scratch (clipboard)</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source black">source: http://junk-fest.blogspot.com/2009/08/junk-fest-its-all-about-three-rs.html</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-clipboard.png)">
+    <hgroup>
+      <h1 class="white">Clipboard</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Clipboard</b></p>
+        <ul>
+          <li>Demo 'normal' clipboard - limitations</li>
+          <li>Demo clipboard utility</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source white">source: flickr / John McNab</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-bios.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Start Up</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Start your computer via bios</li>
+          <li>Power saving</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-sleeping.png)">
+    <hgroup>
+      <h1 class="white">Type More</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Type More</b></p>
+        <ul>
+          <li>Where do we spend most of our day</li>
+          <li>Mouse is evil!  Typing = keyboard.  </li>
+          <li>Taking your hands away from the keyboard = what?  Lost time!</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source white">source: flickr / delgrosso</footer>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/toolbox_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Script It!</h2>
+      <h3>Write a script if you do it more than once.</h3>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type More</h2>
+      <h3>Ye Old Batch File</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="text">
+      net stop "RAILO"
+      net start "RAILO"
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Type More</b></p>
+        <ul>
+          <li>Batch files save typing!</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type More</h2>
+      <h3>Ye Old Batch File (or shell script)</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="text">
+      service apache2 stop
+      service mysql stop
+      /opt/coldfusion10/cfusion/bin/coldfusion stop
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Type More</b></p>
+        <ul>
+          <li>Simple example of a shell script you'd run on Linux/Mac</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type More</h2>
+      <h3>Ye Old Batch File (or shell script)</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="text">
+      <b>net stop "W3SVC"</b>
+      <b>net stop "MSSQLSERVER"</b>
+      <b>net stop "ColdFusion 9 Application Server"</b>
+      <b>net stop "JIRA"</b>
+      net stop "RAILO"
+
+      <b>net start "W3SVC"</b>
+      <b>net start "MSSQLSERVER"</b>
+      net start "RAILO"
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Type More</b></p>
+        <ul>
+          <li>You probably have more than one service.</li>
+          <li>Powershell, bash, etc</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type More</h2>
+      <h3>Automate Shutting Down</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="text">
+      # Uses psshutdown from SysInternals (now Microsoft)
+
+      PsShutdown.exe -o -f -k  (Windows)
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Type More</b></p>
+        <ul>
+          <li>You are probably still thinking about the power on slide?</li>
+          <li>Don't worry about links - will all be on wiki</li>
+          <li>shutdown -P now for Linux</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+
+
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-web1.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Explore The Web</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Like everything else tools have moved from the desktop to the web.</li>
+          <li>Craigslist, Git hooks, etc.</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-web2.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Explore The Web</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Like everything else tools have moved from the desktop to the web.</li>
+          <li>Craigslist, Git hooks, etc.</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+
+
+
+
+
+
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/toolbox_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>cron</h2>
+      <h3>lets automate these batch files!</h3>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>cron</h2>
+      <h3>Lets Automate Something</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="text">
+      # Classic crontab format:
+      # Minutes Hours Days Months DayOfWeek Command
+
+      # Update local schema with prd data
+      0 5 * * 1-5 ant -f C:\ant\db.build.xml copy-prd-to-local
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Type More</b></p>
+        <ul>
+          <li>Cron for Windows</li>
+          <li>Common syntax</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>cron</h2>
+      <h3>0 * * 5... WTF</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="text">
+      0 5 * * 1-5 ant
+
+      # Minutes Hours Days Months DayOfWeek Command
+      0 = minute (0-59)
+      5 = hour (0-23)
+      * = day of the month (1-31)
+      * = month of the year (1-12)
+      1-5 = day of the week (0-6 with 0=Sunday)
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Type More</b></p>
+        <ul>
+          <li>Explain parameters</li>
+          <li>Tons of examples online!!</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>cron</h2>
+      <h3>Real World Example</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="text">
+      # Minutes Hours Days Months DayOfWeek Command
+
+      # Shutdown my computer at 10pm every weeknight
+      0 22 * * 1-5 PsShutdown.exe -o -f -k
+
+      # Run garbage collection on my git repos on first of month
+      0 8 1 * * D:\Dropbox\scripts\cron\git-gc.bat
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Type More</b></p>
+        <ul>
+          <li>Explain parameters</li>
+          <li>Tons of examples online!!</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+   <slide class="title-slide segue fill nobackground" style="background-image: url(images/back_form.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Form Fill</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Use a browser plugin to easily fill forms</li>
+          <li>Good for testing!</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source white">source: flickr / Per Axbom</footer>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/toolbox_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Text Replacement</h2>
+      <h3>Type more? No! Type less!</h3>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type More</h2>
+      <h3>By Typing Less</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="text">
+        &lt;cfdump var="#foo#"&gt;
+        &lt;cfabort /&gt;
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Type More</b></p>
+        <ul>
+          <li>How many times do you type this a day?</li>
+          <li>Ever forget one in your code?</li>
+          <li>Did you know there were more attributes?</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type More</h2>
+      <h3>By Typing Less</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint">
+        &lt;cfdump var="#foo#"
+          <b>caption="Something Descriptive"
+          top="10"</b>
+          abort="true"
+          <b>format="html"</b>&gt;
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Title</b></p>
+        <ul>
+          <li>Top attribute helpful for ORM</li>
+          <li>Caption useful to tell what you are looking at</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type More</h2>
+      <h3>By Typing Less</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint">
+        <b>&lt;--- CFDUMP: 4/6/2014 - Jim Priest - priest@thecrumb.com ---&gt;</b>
+        &lt;cfdump var="someValue"
+          <b>caption="Something Descriptive"
+          top="10"</b>
+          abort="true"
+          <b>format="html"</b>&gt;
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b>Comments</b></p>
+        <ul>
+          <li>I like to add time/date/who</li>
+          <li></li>
+          <li></li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type More</h2>
+      <h3>By Typing Less</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint">
+      ;-- Wrap selected text in CFDump --
+      F1::
+        clipboard =
+        send ^c
+        clipwait, 1
+        If ErrorLevel = 0
+        {
+          clipboard = &lt;!--- CFDUMP: Debugging ---&gt;`n<cfdump var="#%clipboard%#" label="Dump ( %clipboard% )" abort="true" format="html">`n
+          send ^v
+        }
+      return
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b></b></p>
+        <ul>
+          <li>Demo - open autohotkey.cfm</li>
+          <li>Other options for Linux / Mac</li>
+          <li>Better than snippets - why?</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-tool1.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Ant in 2014</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Still using ANT?</li>
+          <li>Checkout some of the alternatives</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+    <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-tool2.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Ant in 2014</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Still using ANT?</li>
+          <li>Checkout some of the alternatives</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+    <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-tool3.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Ant in 2014</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Still using ANT?</li>
+          <li>Checkout some of the alternatives</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+    <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-tool4.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Ant in 2014</h1>
+    </hgroup>tool4
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Still using ANT?</li>
+          <li>Checkout some of the alternatives</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+    <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-tool5.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Ant in 2014</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Still using ANT?</li>
+          <li>Checkout some of the alternatives</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/toolbox_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Bash</h2>
+      <h3>No really. Type less.</h3>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type Less</h2>
+      <h3>Git Shortcuts - .bash_profile</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint">
+        alias cfo="cd /d/wwwroot/cfo2014"
+        alias buglog="cd /d/wwwroot/buglog"
+        alias blog="cd /d/wwwroot/thecrumb-posts"
+        alias ncdevcon="cd /d/wwwroot/ncdevcon-com2"
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b></b></p>
+        <ul>
+          <li>Is your git bash still pointed to your home directory?</li>
+          <li>To create a .file on Windows do touch .file</li>
+          <li>TONS of stuff you can do in bash - google it!</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Type Less</h2>
+      <h3>Git Shortcuts - .gitconfig</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint">
+        [alias]
+          st = status
+          ci = commit
+          co = checkout
+          dt = difftool
+      </pre>
+    </article>
+    <aside class="note">
+      <section>
+        <p><b></b></p>
+        <ul>
+          <li>Quit typing 'git status'</li>
+          <li>Again the skys the limit here</li>
+          <li>Lots of nice logging options - demo</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-cmd.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Ditch Command Prompt On Windows</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Conemu + Git Bash + TCC</li>
+          <li>Git bash replaces GOW</li>
+          <li>Demo tabs</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-organized.png)">
+    <hgroup>
+      <h1 class="white">Get Organized</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Get Organized</b></p>
+        <ul>
+          <li>Multiple Monitors</li>
+          <li>WindowPad / Multiple Monitors</li>
+          <li>Docks, Etc</li>
+          <li>Launchers</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source white">source: flickr / geekstinkbreath</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-desktop.png)">
+    <hgroup>
+      <h1 class="white">Look Familiar?</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Launchers</b></p>
+        <ul>
+          <li>Windows Start / Ubuntu Start</li>
+          <li>Launcher Apps </li>
+          <li>Alfred</li>
+          <li>Extras that apps do? Examples?? </li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-virtualdesktop.png)">
+    <hgroup>
+      <h1 class="white">Virtual Desktops</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Virtual Desktops</b></p>
+        <ul>
+          <li>Dexpot / VirtuaWin / Linux / Mac</li>
+          <li>Works even better with Multiple Monitors</li>
+          <li>Segment tasks by window groups</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source white">source: flickr / Jose C Silva</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-phone.png)">
+    <hgroup>
+      <h1 class="black">Quick Tip: Don't Forget Your Phone</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Quicky</b></p>
+        <ul>
+          <li>Lots of good apps for phone</li>
+          <li>See my resources for links</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-phone2.png)">
+    <hgroup>
+      <ol class="build">
+        <li><h1 class="black">APPLICATION</h1></li>
+        <li><h1 class="black">DAY / TIME</h1></li>
+        <li><h1 class="black">EVENT</h1></li>
+        <li><h1 class="black">LOCATION</h1></li>
+        <li><h1 class="black">STATE</h1></li>
+      </ol>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Time Clock</b></p>
+        <ul>
+          <li>How many of these small repetitive tasks do you do every day??</li>
+          <li>cfdump/cfabort</li>
+          <li>new functions</li>
+          <li>comments</li>
+          <li>type the same thing you did yesterday from scratch (clipboard)</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source black">source: pieter ouwerkerk</footer>
+  </slide>
+
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-box.png)">
+    <hgroup>
+      <h1 class="white">Think Outside The Box</h1>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p><b>Think Outside The Box</b></p>
+        <ul>
+          <li>How can we leverage the tools WE ALREADY KNOW to do different things.</li>
+          <li>We are all creative programmers!!</li>
+          <li>IFTTT examples?</li>
+          <li>ColdFusion + Selenium Spam Cleanup</li>
+          <li>Others?</li>
+        </ul>
+      </section>
+    </aside>
+    <footer class="source white">source: flickr / Earl - What I Saw 2.0</footer>
+  </slide>
+
+  <slide class="title-slide segue fill nobackground" style="background-image: url(images/back-questions.png)">
+    <aside class="note">
+      <section>
+        <p><b>Questions</b></p>
+        <ul>
+          <li>Mention wiki on github</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/toolbox_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>The End</h2>
+      <h3>Thank You!</h3>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+</slides>
+
+</body>
+</html>

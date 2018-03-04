@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>jQuery Datepicker Core Demo</title>
+<script type="text/javascript" src="../jquery-1.2.6.min.js"></script>
+<script src="ui.datepicker.js" type="text/javascript" charset="utf-8"></script>	
+
+<link rel="stylesheet" type="text/css" href="../jquery.css" />
+<link rel="stylesheet" href="ui.datepicker.css" type="text/css" media="screen" title="core css file" charset="utf-8" />
+</head>
+<body>
+<h1>UI Datepicker Core Components</h1>
+&laquo; <a href="../index.html">back to index</a>
+
+<p><input type="text" id="dateinput" value="click here to see"></p>
+
+
+<h3>Code:</h3>
+<pre>
+&lt;input type="text" id="dateinput" value="click here to see"&gt;
+
+ $(document).ready(function(){
+	$("#dateinput").datepicker();
+ });
+</pre>
+
+<!-- Attach the datepicker to dateinput after document is ready -->
+<script type="text/javascript" charset="utf-8">
+	jQuery(function($){
+		$("#dateinput").datepicker();
+	});
+</script>
+
+</body>
+</html>

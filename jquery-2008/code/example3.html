@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Introduction to jQuery - Example 3</title>
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.css" />
+<link rel="stylesheet" type="text/css" href="example3.css" />
+<script type="text/javascript">
+ $(document).ready(function(){
+
+	$(".stripeMe tr").mouseover(function(){
+		$(this).addClass("over");
+	});
+
+	$(".stripeMe tr").mouseout(function(){
+		$(this).removeClass("over");
+	});
+
+	$(".stripeMe tr:even").addClass("alt");
+
+});
+</script>
+</head>
+<body>
+<h1>Example 3 - Zebra Striping!</h1>
+&laquo; <a href="index.html">back to index</a>
+
+<hr>
+<strong>Striped table</strong>
+
+<table class="stripeMe">
+	<thead>
+		<tr>
+			<th>Lorem</th>
+			<th>Ipsum</th>
+			<th>Dolor</th>
+			<th>Sit</th>
+			<th>Amet</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Lorem</td>
+			<td>Ipsum</td>
+			<td>Dolor</td>
+			<td>Sit</td>
+			<td>Amet</td>
+		</tr>
+		<tr>
+			<td>Lorem</td>
+			<td>Ipsum</td>
+			<td>Dolor</td>
+			<td>Sit</td>
+			<td>Amet</td>
+		</tr>
+		<tr>
+			<td>Lorem</td>
+			<td>Ipsum</td>
+			<td>Dolor</td>
+			<td>Sit</td>
+			<td>Amet</td>
+		</tr>
+		<tr>
+			<td>Lorem</td>
+			<td>Ipsum</td>
+			<td>Dolor</td>
+			<td>Sit</td>
+			<td>Amet</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Code:</h3>
+<pre>
+ $(document).ready(function(){
+
+	$(".stripeMe tr").mouseover(function(){
+		$(this).addClass("over");
+	});
+
+	$(".stripeMe tr").mouseout(function(){
+		$(this).removeClass("over");
+	});
+
+	$(".stripeMe tr:even").addClass("alt");
+
+});
+</pre>
+
+<p>This code could actually be shortened even more but this was kept simple for the example!</p>
+
+</body>
+</html>

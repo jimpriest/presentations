@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Introduction to jQuery - Example 4</title>
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.css" />
+<script type="text/javascript">
+ $(document).ready(function(){
+        $('div.demo-show2> div').hide();
+
+        $('div.demo-show2> h3').click(function() {
+          $(this).next('div').slideToggle('fast')
+          .siblings('div:visible').slideUp('fast');
+        });
+});
+</script>
+</head>
+<body>
+<h1>Example 4 - Accordian</h1>
+&laquo; <a href="index.html">back to index</a>
+
+<hr>
+<strong>Accordian</strong>
+
+<div class="demo-show2">
+  <h3>Title 1</h3>
+  <div>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus carborundum e pluribus unum. Defacto lingo </div>
+  <h3>Title 2</h3>
+  <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad </div>
+  <h3>Title 3</h3>
+  <div>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc., li tot Europa usa li sam </div>
+</div>
+
+<h3>Code:</h3>
+<pre>
+
+ $(document).ready(function(){
+	 $('div.demo-show2> div').hide();
+
+	 $('div.demo-show2> h3').click(function() {
+	   $(this).next('div').slideToggle('fast')
+		.siblings('div:visible').slideUp('fast');
+	 });
+});
+
+
+</pre>
+</body>
+</html>

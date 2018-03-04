@@ -1,0 +1,12 @@
+{
+	"rule": [],
+	"includes": [
+		{ "code": "AVOID_USING_CFDUMP_TAG" },
+		{ "code": "AVOID_USING_WRITEDUMP" },
+		{ "code": "EXCESSIVE_FUNCTIONS" }
+   ],
+  "inheritParent": false,
+	"parameters" : {
+		"TooManyFunctionsChecker.maximum": "3"
+	}
+}

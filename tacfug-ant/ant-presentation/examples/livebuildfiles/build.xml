@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<project name="myproject" default="buildDev" basedir=".">
+<!-- used to hide password during user input -->
+<taskdef name="query" classname="com.jera.anttasks.Query"/>	
+
+	<description>
+		This buildfile will deploy the myproject project files to either the development or production server
+		
+		Before building ensure you have the following setup correctly
+		 * source and destination path
+		 * local 'build' directory to store temporary files
+		 * email address and log file name defined
+		 * jar files outlined in taskdefs above configured correctly
+	</description>
+
+	<target name="init" description="Set Global Properties">
+	<!-- set global properties for this build -->
+		<property name="project.name" value="myproject" />
+		<property name="project.fullname" value="myproject Application" />
+	
+	<!-- Define subversion repository location, login and revision -->
+		<property name="svn.rooturl" value="https://svn.yourrepo.com/svn/${project.name}/core/trunk/coldfusion/priv" />
+	
+	<!-- prompt the user to enter their username, password and revision -->
+		<query name="svn.username" message="Enter your SVN username (lowercase)"/>
+	    <query name="svn.password" message="Enter your SVN password" password="true"/>
+		<query name="svn.revision" message="Enter revision (HEAD or #)"/>
+
+	<!-- Define local directory names for build and temp -->
+		<property name="build.temp" value="/temp" />
+		<property name="build.clean" value="/clean" />
+		<property name="project.build.src" value="D:\build\${project.name}"/>
+	
+	<!-- Define remote destination directories - Production and Development -->
+		<property name="project.build.dev" value="\\developmentserver\${project.name}$\priv" />
+    	<property name="project.build.prd" value="\\productionserver\${project.name}$\priv" />
+	
+	<!-- Define log filename - this will be emailed to us at the end of the build -->
+		<property name="build.logfile" value="ant-build.log" />
+		<record name="${build.logfile}"/>
+	
+	<!-- Define email addresses -->
+		<property name="email.toaddress" value="you@yourdomain.com" />
+		<property name="email.fromaddress" value="you@yourdomain.com" />
+	
+	<!-- Create the time stamp -->
+		<tstamp>
+			<format property="svn.builddate" pattern="MM/dd/yy hh:mmaa"/>
+		</tstamp>
+	</target>
+
+	<!-- Setup temp directories -->
+	<target name="prepare" depends="init" description="Checkout code from SVN repository into the local temp directory">
+			<delete dir="${project.build.src}" />
+			<mkdir dir="${project.build.src}" />
+	</target>
+		
+	<!-- Export and get the revision number for this build -->
+	<target name="checkoutSVN" depends="prepare" description="Checkout code from SVN repository into the local temp directory">
+		<exec executable="svn">
+			<arg line="co ${svn.rooturl} ${project.build.src}${build.temp} -r ${svn.revision} --username ${svn.username} --password ${svn.password}"/>
+		</exec>
+		<exec executable="svnversion" dir="${project.build.src}${build.temp}" outputproperty="svn.versionnum">
+			<arg line="."/>
+		</exec>
+	    <echo message="Files checked out to temp directory successfully!"/>
+	</target>	
+
+<!-- Write revision number into application.cfc -->
+	<target name="writeRevision" depends="checkoutSVN" description="Write revision into application.cfc on destination">
+		<replace file="${project.build.src}${build.temp}\application.cfc" token="@@@revision-number@@@" value="Last updated: r${svn.versionnum} - Date: ${svn.builddate}"/>
+	    <echo message="Application.cfc modified successfully!"/>
+	</target>
+
+<!-- Clean up files in temp and copy files to clean dir -->
+	<target name="cleanDir" depends="writeRevision" description="Delete any unnecessary directories and files and copy to clean dir">
+		<copy todir="${project.build.src}${build.clean}">
+			<fileset dir="${project.build.src}${build.temp}">
+				<exclude name="**/_notes/**" />
+                <exclude name="**/install/**" />
+				<exclude name="build*.xml" />
+				<exclude name="**/*.zip" />
+				<exclude name=".project" />
+			</fileset>
+		</copy>
+	    <echo message="Build cleanup complete!"/>
+	</target>	
+
+	<!-- optional email -->
+	<target name="sendMail" description="Send email notification">	
+		<mail mailhost="smtp.yourdomain.com" mailport="25" 
+			subject="'${project.name}' build at revision ${svn.versionnum} successful" 
+			messagefile="${build.logfile}">
+		  <from address="${email.toaddress}"/>
+		  <to address="${email.fromaddress}"/>
+		</mail>
+	    <echo message="Mail sent!"/>
+	</target>
+		
+<!--
+==========================================================================
+IMPORTANT: 	This target uses a DELETE task  to first clean up the target directory!!
+Please review this to make sure this is correct and is going to delete what you think its going to delete!!!
+*** Please review the online documentation concerning filesets and includes!!!!! ***
+========================================================================== 
+-->
+	<target name="buildDev" depends="cleanDir,sendMail" description="Sync files between 'clean' directory and DEVELOPMENT server">	
+	    <delete includeemptydirs="true">
+		    <fileset dir="${project.build.dev}" includes="**/*"/>
+		</delete>
+		<sync todir="${project.build.dev}" verbose="true">
+			<fileset dir="${project.build.src}${build.clean}"/>
+		</sync>
+        <antcall target="cleanUp" />
+        <echo message="Files moved to ${project.build.dev} succesfully!"/>
+	</target>
+	
+	<target name="buildPrd" depends="cleanDir,sendMail" description="Sync files between 'clean' directory and PRODUCTION server">	
+	    <delete includeemptydirs="true">
+		    <fileset dir="${project.build.prd}" includes="**/*"/>
+		</delete>
+		<sync todir="${project.build.prd}" verbose="true">
+			<fileset dir="${project.build.src}${build.clean}"/>
+		</sync>
+        <antcall target="cleanUp" />
+        <echo message="Files moved to ${project.build.prd} succesfully!"/>
+	</target>
+	
+  	<target name="cleanUp" description="Cleans up local temp directories">	
+       	<delete dir="${project.build.src}${build.temp}" />
+    	<delete dir="${project.build.src}${build.clean}" />
+	    <echo message="Cleanup completed succesfully!"/>
+	</target>  
+</project>

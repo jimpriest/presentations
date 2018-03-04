@@ -1,0 +1,22 @@
+# Start with an empty folder
+rm mySite --recurse --force
+mkdir mySite
+cd mySite
+
+# Initialize this folder as a package
+init name=mySite version=1.0.0 slug=mySlug
+
+# Scaffold out a site and a handler
+coldbox create app mySite
+coldbox create handler myHandler index
+
+# Add some required package
+install coldbox
+# install testbox-be
+install cbmessagebox,cbstorages,cbvalidation
+
+# Set the default port
+package set defaultPort=8081
+
+# Start up the embedded server
+start

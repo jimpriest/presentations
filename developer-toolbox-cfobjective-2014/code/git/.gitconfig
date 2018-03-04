@@ -1,0 +1,38 @@
+[user]
+	name = Jim Priest
+	email = 
+[core]
+	autocrlf = true
+	excludesfile = C:\\Users\\jpriest\\Documents\\gitignore_global.txt
+[credential]
+	helper = !'C:\\Users\\jpriest\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    dt = difftool
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)[%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate --numstat
+    lm = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)[%cn]" --decorate --author jpriest
+    standup = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate --since yesterday --author jpriest
+
+# Use BeyondCompare for diff
+# http://stackoverflow.com/questions/2069490/git-diff-with-beyond-compare
+
+[diff]
+    tool = beyondcompare3
+[difftool]
+    prompt = false
+[difftool "beyondcompare3"]
+    #use cygpath to transform cygwin path $LOCAL (something like /tmp/U5VvP1_abc) to windows path, because beyondcompare3 is a windows software
+    cmd = \"c:/program files/beyond compare 3/bcomp.exe\" "$LOCAL" "$REMOTE"
+[merge]
+    tool = beyondcompare3
+[mergetool]
+    prompt = false
+[mergetool "beyondcompare3"]
+    #trustExitCode = true
+    cmd = \"c:/program files/beyond compare 3/bcomp.exe\" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[gc]
+  auto = 1

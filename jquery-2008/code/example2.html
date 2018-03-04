@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Introduction to jQuery - Example 2</title>
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.css" />
+
+<script type="text/javascript">
+ $(document).ready(function(){
+ // hides the slickbox as soon as the DOM is ready
+ // (a little sooner than page load)
+  $('#slickbox').hide();
+
+ // shows the slickbox on clicking the noted link
+  $('a#slick-show').click(function() {
+	$('#slickbox').show('slow');
+	return false;
+  });
+
+ // hides the slickbox on clicking the noted link
+  $('a#slick-hide').click(function() {
+	$('#slickbox').hide('fast');
+	return false;
+  });
+
+ // toggles the slickbox on clicking the noted link
+  $('a#slick-toggle').click(function() {
+	$('#slickbox').toggle(400);
+	return false;
+  });
+ });
+</script>
+</head>
+<body>
+<h1>Example 2 - Basic Show / Hide</h1>
+&laquo; <a href="index.html">back to index</a>
+
+<hr>
+<strong>Show and Hide</strong>
+
+<p><a href="#" id="slick-show">Show the box</a>&nbsp;&bull;&nbsp;<a href="#" id="slick-hide">Hide the box</a>&nbsp;&bull;&nbsp;<a href="#" id="slick-toggle">Toggle the box</a></p>
+
+<div id="slickbox">
+Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus carborundum e pluribus unum. Defacto lingo est igpay atinlay. Marquee selectus non provisio incongruous feline nolo contendre. Gratuitous octopus niacin, sodium glutimate. Quote meon an estimate et non interruptus stadium.
+</div>
+
+<h3>Code:</h3>
+<pre>
+ $(document).ready(function(){
+ // hides the slickbox as soon as the DOM is ready
+ // (a little sooner than page load)
+  $('#slickbox').hide();
+  
+ // shows the slickbox on clicking the noted link
+  $('a#slick-show').click(function() {
+	$('#slickbox').show('slow');
+  });
+ 
+ // hides the slickbox on clicking the noted link
+  $('a#slick-hide').click(function() {
+	$('#slickbox').hide('fast');
+  });
+ 
+ // toggles the slickbox on clicking the noted link
+  $('a#slick-toggle').click(function() {
+	$('#slickbox').toggle(400);
+  });
+ });
+</pre>
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<project name="myproject-SQL" default="buildAll" basedir="." xmlns:ora="antlib:net.sf.incanto">
+<description>
+   This is a build file which I use to create and deploy my project's data to Oracle
+    
+   Before building ensure you have the following setup correctly
+     * you must add TNS_ADMIN to your environment path - this should point to the full path of your tnsnames.ora file
+    
+   This will run the following sql files in sequence:
+    0-drop_tables.sql
+    1-create_tables.sql
+	2-create_sequences.sql
+	3-create_triggers.sql
+	
+   And optionally run this - in order to populate the tables with data
+    4-insert_lookup_data.sql
+</description>
+	
+<target name="init" description="Setup schema name and correct path">
+	<!-- ask user for input -->
+	<input message="Where do you want to deploy to?"
+	        validargs="DEV,PRD" 
+	        addproperty="script.schema"
+	        defaultvalue="DEV"/> 
+	
+	<!-- check users input -->
+	<condition property="choose.DEV">
+		<equals arg1="DEV" arg2="${script.schema}"/>
+	</condition>
+	<condition property="choose.PRD">
+		<equals arg1="PRD" arg2="${script.schema}"/>
+	</condition>
+		
+	<!-- set path -->	
+	<property name="script.path" value="D:\CFProjects\myproject\oracle\ddl" />
+</target>
+
+<!-- NOTE: password below should probably be defined by a user input property!!! -->
+<target name="Copy-to-DEV" depends="init" if="choose.DEV" description="Setup development on DEV">
+	<property name="script.login" value="myproject/my_password@${script.schema}.WORLD" />
+</target>
+
+<target name="Copy-to-PRD" depends="init" if="choose.PRD" description="Setup development on PRD">
+	<property name="script.login" value="myproject/my_password@${script.schema}.WORLD" />
+</target>
+	
+<!-- run the basic table, trigger and sequence scripts -->
+<target name="buildSQL" depends="Copy-to-DEV,Copy-to-PRD" description="Creates test data in the database.">
+	<echo message="Building ${script.schema}..."/>
+	
+	<ora:sqlplus
+       logon="${script.login}"
+       silent="true"
+       failonerror="true"
+       start="${script.path}\0-drop_tables.sql">
+    </ora:sqlplus>
+    <echo message="Tables dropped!"/>
+   <ora:sqlplus
+       logon="${script.login}"
+       silent="true"
+       failonerror="true"
+       start="${script.path}\1-create_tables.sql">
+    </ora:sqlplus>
+    <echo message="Tables created!"/>
+	<ora:sqlplus
+       logon="${script.login}"
+       silent="true"
+       failonerror="true"
+       start="${script.path}\2-create_sequences.sql">
+    </ora:sqlplus>
+    <echo message="Sequences created!"/>
+   <ora:sqlplus
+       logon="${script.login}"
+       silent="true"
+       failonerror="true"
+       start="${script.path}\3-create_triggers.sql">
+    </ora:sqlplus>
+    <echo message="Triggers created!"/>
+</target>
+
+<!-- requirement data depends on tables existing - so buildSQL must be run first -->
+<target name="buildData" depends="buildSQL" description="Creates user test data in the database.">
+   <ora:sqlplus
+       logon="${script.login}"
+       silent="true"
+       failonerror="true"
+       start="${script.path}\4_insert_lookup_data.sql">
+    </ora:sqlplus>
+    <echo message="Data added successfully!"/>
+</target>
+
+<!-- this will build everything - tables and data -->
+<target name="buildAll" depends="buildSQL,buildData" description="Builds everything" />
+</project>
+ 

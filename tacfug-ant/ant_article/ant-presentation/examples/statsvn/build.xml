@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<project name="StatSVN" default="init" basedir=".">
+	<!-- used to create report based on svn usage -->
+	<taskdef name="statsvn" classname="net.sf.statsvn.ant.StatSvnTask" />
+	
+	<description>
+		This is an example of how to create a StatSVN report
+		
+		In this example I had checked out a copy of the Fusebox code. 
+	</description>
+	
+	<target name="init" description="Set global properties">
+	</target>
+	
+	<target name="buildLog" depends="init" description="Generate a log file from a repository">
+		<exec executable = "svn"  output = "e:/temp/statsvn.log">
+		    <arg  line = "log e:\temp\fusebox --xml -v"/>
+		</exec>
+		<echo message="Log created successfully!"/>
+	</target>
+		
+	<target name="buildReport" depends="init" description="This will use the statsvn plugin to generate a report and copy it to the developement server">
+		    <statsvn
+		        path="e:\temp\fusebox"
+		        log="e:\temp\statsvn.log"
+		        outputDir="e:\statsvn\stats"
+		        title="Fusebox SVN Report"/>
+		<echo message="StatSVN report created successfully!"/>
+	</target>
+</project>

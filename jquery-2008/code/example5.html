@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Introduction to jQuery - Example 5</title>
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="jquery.curvycorners.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.css" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#verifyrequest").click(function() {
+		var checked_status = this.checked;
+		if(checked_status){
+		    $("#verify").addClass("verify2");
+		    $("#verify").fadeTo("slow", 0.7);
+		    $(this).next().text("Congratulations!");
+		} else {
+		    $("#verify").removeClass("verify2").fadeTo("slow", 1);
+		    $(this).next().text("You must volunteer!");
+	     	}
+		});
+});
+</script>
+
+
+
+</head>
+<body>
+<h1>Example 5 - Manipulate CSS</h1>
+&laquo; <a href="index.html">back to index</a>
+
+<hr>
+<strong>Verification Message</strong>
+
+<div align="center">
+	<div id="verify" class="verify">
+		<label for="verifyrequest">
+			<input name="verifyrequest" id="verifyrequest" type="checkbox" />
+			<span> Did Gerry volunteer you for another jQuery presentation?</span>
+		</label>
+	</div>
+</div>
+<h3>Code:</h3>
+<pre>
+$(document).ready(function(){
+	$("#verifyrequest").click(function() {
+		var checked_status = this.checked;
+		
+		if(checked_status){
+		    $("#verify").addClass("verify2");
+		    $("#verify").fadeTo("slow", 0.7);
+		    $(this).next().text("Congratulations!");
+		} else {
+		    $("#verify").removeClass("verify2").fadeTo("slow", 1);
+		    $(this).next().text("You must volunteer!");
+	     	}
+		
+		});
+});
+</pre>
+</body>
+</html>
