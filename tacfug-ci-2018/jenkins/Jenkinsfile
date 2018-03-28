@@ -1,0 +1,87 @@
+#!groovy
+
+// icf jenkins must run on a node
+node('master') {
+    stage('Set Job Properties'){
+        properties([
+            buildDiscarder(logRotator(
+                artifactDaysToKeepStr: '',
+                artifactNumToKeepStr: '',
+                daysToKeepStr: '',
+                numToKeepStr: '5')),
+            office365ConnectorWebhooks([[
+                name: 'MY TEAMS CHANNEL',
+                notifyBackToNormal: true,
+                notifyFailure: true,
+                notifySuccess: true,
+                notifyUnstable: true, 
+                url: 'https://outlook.office.com/webhook/my-teams-URL/JenkinsCI/'
+            ]]),
+            [$class: 
+            'RebuildSettings', 
+                autoRebuild: false, 
+                rebuildDisabled: false],
+            parameters([
+                string(defaultValue: 'my-test-url.com', 
+                    description: 'Leave off http/https or Gulp will break', 
+                    name: 'TESTURL')
+                ]),
+        ])
+    }
+    stage('Checkout from SVN') {
+        checkout changelog: false, poll: false,
+        scm: [
+            $class: 'SubversionSCM', 
+            additionalCredentials: [], 
+            excludedCommitMessages: '', 
+            excludedRegions: '', 
+            excludedRevprop: '', 
+            excludedUsers: '', 
+            filterChangelog: false, 
+            ignoreDirPropChanges: false, 
+            includedRegions: '',
+            locations: [[
+                credentialsId: 'get the credentials key from jenkins', 
+                depthOption: 'infinity', 
+                ignoreExternalsOption: true, 
+                local: '.', 
+                remote: 'url-to-your-code-in-svn'
+            ]],
+            workspaceUpdater: [$class: 'UpdateUpdater']
+        ]
+    }
+    stage('Install Node') {
+        // if node isn't installed already this should force jenkins to install
+        env.NODEJS_HOME = "${tool 'Node'}"
+        bat "\"${env.NODEJS_HOME}\"\\node.exe -v"
+        bat "\"${env.NODEJS_HOME}\"\\npm -v" 
+    }
+    stage('Setup') {
+        parallel (
+            "Reload Application" : {
+                // http request currently doesn't seem to support 
+                // jenkins env vars so we have to hard code url
+                // should be same as TESTURL we set above
+                httpRequest ignoreSslErrors: true, responseHandle: 'NONE', url: 'https://my-test-url.com/'
+            },
+            "Install Requirements" : {
+                 dir('_tests') { 
+                    bat "\"${env.NODEJS_HOME}\"\\npm install" 
+                }
+            }
+        )
+    }
+    stage('Run Tests') {
+        env.NODEJS_HOME = "${tool 'Node'}"
+        // on windows
+        env.PATH="${env.NODEJS_HOME};${env.PATH}"
+        // IMPORTANT - do not include http/https for gulp url!
+        bat '''
+            cd _tests/
+            gulp --url %testurl%
+        '''
+    }
+    stage('Publish Reports') {
+       junit healthScaleFactor: 1.0, testResults: '_tests/results/*.xml'
+    }
+}
