@@ -100,33 +100,36 @@ Check out your computer BIOS to see if you can schedule when your computer power
 ## RESOURCES / LINKS
 
 #### Text Expansion
-Espanso https://espanso.org/
-AutoHotkey http://www.autohotkey.com
+Espanso https://espanso.org/<br />
+AutoHotkey http://www.autohotkey.com<br />
 
 #### Launchers
-Find and Run Robot (Win) http://www.donationcoder.com/Software/Mouser/findrun/index.html
-Launchy (Win, Mac) http://launchy.net
+Find and Run Robot (Win) http://www.donationcoder.com/Software/Mouser/findrun/index.html<br />
+Launchy (Win, Mac) http://launchy.net<br />
 
 #### Clipboard Utilities
-Ditto (Win) http://ditto-cp.sourceforge.net 
-CopyQ (Cross platform) https://hluk.github.io/CopyQ/ 
+Ditto (Win) http://ditto-cp.sourceforge.net <br />
+CopyQ (Cross platform) https://hluk.github.io/CopyQ/ <br />
 
 #### Form Fill
-Search in your browser extensions 
+Search in your browser extensions <br />
 
 #### Virtual Desktops
-Built in by default – (Spaces – Mac), (Linux) 
-Dexpot (Win) http://dexpot.de/index.php?id=home 
+Built in by default – (Spaces – Mac), (Linux) <br />
+Dexpot (Win) http://dexpot.de/index.php?id=home <br />
 
 #### Shell / Bash
-Aliases https://linuxize.com/post/how-to-create-bash-aliases/ 
-Starship prompt https://starship.rs  
-fzf https://github.com/junegunn/fzf  
-ripgrep https://github.com/BurntSushi/ripgrep 
-fd (find) https://github.com/sharkdp/fd?ref=solarwinter.net 
-tldr https://tldr.sh 
+Aliases https://linuxize.com/post/how-to-create-bash-aliases/ <br />
+Starship prompt https://starship.rs  <br />
+fzf https://github.com/junegunn/fzf  <br />
+ripgrep https://github.com/BurntSushi/ripgrep <br />
+fd (find) https://github.com/sharkdp/fd?ref=solarwinter.net <br />
+tldr https://tldr.sh <br />
 
 #### Misc
-Emmet https://code.visualstudio.com/docs/editor/emmet 
-Emmet Examples https://docs.emmet.io/actions/ 
-SteerMouse https://www.plentycom.jp/en/steermouse/download.php 
+Emmet https://code.visualstudio.com/docs/editor/emmet <br />
+Emmet Examples https://docs.emmet.io/actions/ <br />
+SteerMouse https://www.plentycom.jp/en/steermouse/download.php <br />
+
+
+
