@@ -108,25 +108,25 @@ Find and Run Robot (Win) http://www.donationcoder.com/Software/Mouser/findrun/in
 Launchy (Win, Mac) http://launchy.net
 
 #### Clipboard Utilities
-Ditto (Win) http://ditto-cp.sourceforge.net
-CopyQ (Cross platform) https://hluk.github.io/CopyQ/
+Ditto (Win) http://ditto-cp.sourceforge.net 
+CopyQ (Cross platform) https://hluk.github.io/CopyQ/ 
 
 #### Form Fill
-Search in your browser extensions
+Search in your browser extensions 
 
 #### Virtual Desktops
-Built in by default – (Spaces – Mac), (Linux)
-Dexpot (Win) http://dexpot.de/index.php?id=home
+Built in by default – (Spaces – Mac), (Linux) 
+Dexpot (Win) http://dexpot.de/index.php?id=home 
 
 #### Shell / Bash
-Aliases https://linuxize.com/post/how-to-create-bash-aliases/
-Starship prompt https://starship.rs
-fzf https://github.com/junegunn/fzf
-ripgrep https://github.com/BurntSushi/ripgrep
-fd (find) https://github.com/sharkdp/fd?ref=solarwinter.net
-tldr https://tldr.sh
+Aliases https://linuxize.com/post/how-to-create-bash-aliases/ 
+Starship prompt https://starship.rs  
+fzf https://github.com/junegunn/fzf  
+ripgrep https://github.com/BurntSushi/ripgrep 
+fd (find) https://github.com/sharkdp/fd?ref=solarwinter.net 
+tldr https://tldr.sh 
 
 #### Misc
-Emmet https://code.visualstudio.com/docs/editor/emmet
-Emmet Examples https://docs.emmet.io/actions/
-SteerMouse https://www.plentycom.jp/en/steermouse/download.php
+Emmet https://code.visualstudio.com/docs/editor/emmet 
+Emmet Examples https://docs.emmet.io/actions/ 
+SteerMouse https://www.plentycom.jp/en/steermouse/download.php 
