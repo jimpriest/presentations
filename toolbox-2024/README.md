@@ -106,6 +106,7 @@ AutoHotkey http://www.autohotkey.com<br />
 #### Launchers
 Find and Run Robot (Win) http://www.donationcoder.com/Software/Mouser/findrun/index.html<br />
 Launchy (Win, Mac) http://launchy.net<br />
+Alfred https://www.alfredapp.com  (Alfred is a fantastic app and can do many of the things on this list especially with the PowerPack.) 
 
 #### Clipboard Utilities
 Ditto (Win) http://ditto-cp.sourceforge.net <br />
